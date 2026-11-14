@@ -1,0 +1,118 @@
+.report-container {
+    max-width: 750px;
+    margin: 60px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+.report-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.report-heading span {
+    color: #536dfe;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.report-heading h1 {
+    font-size: 34px;
+    margin: 15px 0;
+    color: #172b4d;
+}
+
+.report-heading p {
+    color: #778196;
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 23px;
+}
+
+.form-group > label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #26334b;
+    font-size: 14px;
+}
+
+.form-group input:not([type="radio"]):not([type="file"]),
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dfe3ed;
+    border-radius: 7px;
+    outline: none;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #536dfe;
+}
+
+.form-group textarea {
+    height: 110px;
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    gap: 25px;
+}
+
+.radio-group label {
+    color: #586174;
+    font-size: 14px;
+}
+
+.radio-group input {
+    margin-right: 7px;
+    accent-color: #536dfe;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 8px;
+    color: #8992a3;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #536dfe;
+    color: white;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #4058e8;
+}
+
+@media (max-width: 600px) {
+    .report-container {
+        margin: 25px 15px;
+        padding: 25px 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}

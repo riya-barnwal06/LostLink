@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report an Item | LostLink</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/report.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Lost<span>Link.</span></div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#lost-items">Lost Items</a>
+            <a href="index.html#found-items">Found Items</a>
+        </div>
+
+        <button class="login-btn" onclick="location.href='index.html'">
+            Back to Home
+        </button>
+    </nav>
+
+    <section class="report-container">
+
+        <div class="report-heading">
+            <span>HELP YOUR CAMPUS COMMUNITY</span>
+            <h1>Report an Item</h1>
+            <p>Lost something or found something? Let your campus community know.</p>
+        </div>
+
+        <form id="reportForm">
+
+            <div class="form-group">
+                <label>Report Type *</label>
+
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="reportType" value="Lost" required>
+                        Lost Item
+                    </label>
+
+                    <label>
+                        <input type="radio" name="reportType" value="Found">
+                        Found Item
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="itemName">Item Name *</label>
+                <input type="text" id="itemName"
+                    placeholder="e.g. Black Wallet" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category *</label>
+
+                <select id="category" required>
+                    <option value="">Select a category</option>
+                    <option>Electronics</option>
+                    <option>Accessories</option>
+                    <option>Documents / ID Cards</option>
+                    <option>Books / Stationery</option>
+                    <option>Clothing</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description *</label>
+
+                <textarea id="description"
+                    placeholder="Describe the item, its colour, brand, unique features..."
+                    required></textarea>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="location">Location *</label>
+
+                    <input type="text" id="location"
+                        placeholder="e.g. College Library" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date *</label>
+                    <input type="date" id="date" required>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="image">Upload Item Image</label>
+                <input type="file" id="image" accept="image/*">
+                <small>Optional. Maximum file size: 5 MB.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact Information *</label>
+
+                <input type="text" id="contact"
+                    placeholder="Email or phone number" required>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Submit Report →
+            </button>
+
+        </form>
+
+    </section>
+
+    <footer>
+        <h2>LostLink.</h2>
+        <p>Lost something? Find it here.</p>
+        <p>© 2026 LostLink. Campus Lost & Found.</p>
+    </footer>
+
+    <script src="js/report.js"></script>
+
+</body>
+</html>
