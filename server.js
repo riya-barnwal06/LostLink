@@ -15,6 +15,12 @@ app.use(express.urlencoded({ extended: true }));
 // Serve frontend files
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve uploaded images
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Item routes
+app.use('/api/items', require('./routes/items'));
+
 // Home route
 app.get('/api', (req, res) => {
     res.json({
