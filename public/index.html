@@ -24,7 +24,7 @@
         </div>
 
         <div class="nav-buttons">
-            <button class="login-btn">Login</button>
+            <a href="login.html" class="login-btn" id="authButton">Login</a>
             <button class="report-btn" onclick="location.href='report.html'">+ Report Item</button>
         </div>
     </nav>
@@ -49,7 +49,7 @@
 
             <div class="hero-buttons">
                 <button class="primary-btn" onclick="location.href='report.html'">Report Lost Item</button>
-                <button class="secondary-btn">Browse Items</button>
+                <button class="secondary-btn" onclick="location.href='#found-items'">Browse Items</button>
             </div>
 
         </div>
@@ -67,17 +67,17 @@
     <section class="stats">
 
         <div class="stat-box">
-            <h2>120+</h2>
+            <h2 id="totalItems">0</h2>
             <p>Items Reported</p>
         </div>
 
         <div class="stat-box">
-            <h2>85+</h2>
+            <h2 id="recoveredItems">0</h2>
             <p>Items Recovered</p>
         </div>
 
         <div class="stat-box">
-            <h2>35+</h2>
+            <h2 id="activeItems">0</h2>
             <p>Active Reports</p>
         </div>
 
@@ -93,8 +93,8 @@
         </div>
 
         <div class="search-bar">
-            <input type="text" placeholder="Search for an item...">
-            <button>Search</button>
+            <input type="text" id="searchInput" placeholder="Search for an item...">
+            <button id="searchButton">Search</button>
         </div>
 
     </section>
@@ -108,44 +108,11 @@
                 <h2>Recently reported items</h2>
             </div>
 
-            <a href="#">View all →</a>
+            <a href="#found-items">View all →</a>
         </div>
 
-        <div class="item-grid">
-
-            <div class="item-card">
-                <div class="item-image">🎒</div>
-                <div class="item-info">
-                    <span class="status lost">LOST</span>
-                    <h3>Black Backpack</h3>
-                    <p>📍 Library</p>
-                    <p>Reported recently</p>
-                    <button>View Details →</button>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-image">🎧</div>
-                <div class="item-info">
-                    <span class="status found">FOUND</span>
-                    <h3>Wireless Earbuds</h3>
-                    <p>📍 Computer Lab</p>
-                    <p>Reported recently</p>
-                    <button>View Details →</button>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-image">📱</div>
-                <div class="item-info">
-                    <span class="status lost">LOST</span>
-                    <h3>Mobile Phone</h3>
-                    <p>📍 Cafeteria</p>
-                    <p>Reported recently</p>
-                    <button>View Details →</button>
-                </div>
-            </div>
-
+        <div class="item-grid" id="itemGrid">
+            <p>Loading reports...</p>
         </div>
 
     </section>
@@ -156,6 +123,8 @@
         <p>Lost something? Find it here.</p>
         <p>© 2026 LostLink. Campus Lost & Found.</p>
     </footer>
+
+    <script src="js/index.js"></script>
 
 </body>
 </html>

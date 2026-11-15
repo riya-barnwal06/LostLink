@@ -107,4 +107,94 @@ router.get('/', (req, res) => {
 
 });
 
+// Get details of a single item
+router.get('/:id', (req, res) => {
+
+    try {
+
+        const id = Number(req.params.id);
+
+        if (!Number.isInteger(id) || id <= 0) {
+            return res.status(400).json({
+                message: 'Invalid item ID.'
+            });
+        }
+
+        const item = db.prepare(`
+            SELECT id, report_type, item_name, category,
+                   description, location, item_date,
+                   image_path, status, created_at
+            FROM items
+            WHERE id = ?
+        `).get(id);
+
+        if (!item) {
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+        }
+
+        res.json(item);
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            message: 'Unable to retrieve item details.'
+        });
+
+    }
+
+});
+
+// Update item recovery status
+router.put('/:id/status', (req, res) => {
+
+    try {
+
+        const id = Number(req.params.id);
+        const { status } = req.body;
+
+        if (!Number.isInteger(id) || id <= 0) {
+            return res.status(400).json({
+                message: 'Invalid item ID.'
+            });
+        }
+
+        if (!['Active', 'Recovered'].includes(status)) {
+            return res.status(400).json({
+                message: 'Invalid status.'
+            });
+        }
+
+        const result = db.prepare(`
+            UPDATE items
+            SET status = ?
+            WHERE id = ?
+        `).run(status, id);
+
+        if (result.changes === 0) {
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+        }
+
+        res.json({
+            message: 'Item status updated successfully!',
+            status: status
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            message: 'Unable to update item status.'
+        });
+
+    }
+
+});
+
 module.exports = router;
